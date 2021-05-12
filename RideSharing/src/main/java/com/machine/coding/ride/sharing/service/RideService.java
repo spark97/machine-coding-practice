@@ -61,7 +61,6 @@ public class RideService {
     }
 
     public Ride selectRide(String userId, String origin, String destination, int seats, String preferredVehicleName){
-
         SelectionStrategy strategy = preferredVehicleName.equals("MOST_VACANT") ? new MostVacantStrategy() : new PreferredVehicleStrategy();
         Ride response  = strategy.selectRide(userId, origin, destination, seats, preferredVehicleName);
         if(response!=null) {
